@@ -4,6 +4,7 @@ use Google\Auth\Credentials\ServiceAccountCredentials;
 use Google\Auth\HttpHandler\HttpHandlerFactory;
 
 require __DIR__ . '/vendor/autoload.php';
+
 $jsonData = file_get_contents("php://input");
 
 $data = json_decode($jsonData, true);
@@ -18,7 +19,7 @@ $credential = new ServiceAccountCredentials(
 
 $token = $credential->fetchAuthToken(HttpHandlerFactory::build());
 
-$ch = curl_init("https://fcm.googleapis.com/v1/projects/belajar-real-time/messages:send");
+$ch = curl_init("https://fcm.googleapis.com/v1/projects/flodec-p24s/messages:send");
 
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
     'Content-Type: application/json',
@@ -29,8 +30,8 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, [
         "message" => [
             "topic" => "notif",
             "notification" => [
-                "body" => "tes123",
-                "title" => "ini isi"
+                "body" => $message,
+                "title" => $title
             ],
             "android" => [
                 "notification" => [
