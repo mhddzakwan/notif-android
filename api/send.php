@@ -5,13 +5,6 @@ use Google\Auth\HttpHandler\HttpHandlerFactory;
 
 require __DIR__ . '/vendor/autoload.php';
 
-$jsonData = file_get_contents("php://input");
-
-$data = json_decode($jsonData, true);
-
-$title = $data["title"];
-$message = $data["message"];
-
 $credential = new ServiceAccountCredentials(
     "https://www.googleapis.com/auth/firebase.messaging",
     json_decode(file_get_contents(__DIR__ . "/pvKey.json"), true)
@@ -30,8 +23,8 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, [
         "message" => [
             "topic" => "notif",
             "notification" => [
-                "body" => $message,
-                "title" => $title
+                "body" => "tes123",
+                "title" => "ini isi"
             ],
             "android" => [
                 "notification" => [
