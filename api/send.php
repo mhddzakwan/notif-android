@@ -1,4 +1,4 @@
-<?phps
+<?php
 
 use Google\Auth\Credentials\ServiceAccountCredentials;
 use Google\Auth\HttpHandler\HttpHandlerFactory;
