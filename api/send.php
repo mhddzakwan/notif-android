@@ -4,6 +4,12 @@ use Google\Auth\Credentials\ServiceAccountCredentials;
 use Google\Auth\HttpHandler\HttpHandlerFactory;
 
 require __DIR__ . '/vendor/autoload.php';
+$jsonData = file_get_contents("php://input");
+
+$data = json_decode($jsonData, true);
+
+$title = $data["title"];
+$message = $data["message"];
 
 $credential = new ServiceAccountCredentials(
     "https://www.googleapis.com/auth/firebase.messaging",
