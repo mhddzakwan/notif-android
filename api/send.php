@@ -19,7 +19,7 @@ $credential = new ServiceAccountCredentials(
 
 $token = $credential->fetchAuthToken(HttpHandlerFactory::build());
 
-$ch = curl_init("https://fcm.googleapis.com/v1/projects/flodec-p24s/messages:send");
+$ch = curl_init("https://fcm.googleapis.com/v1/projects/belajar-real-time/messages:send");
 
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
     'Content-Type: application/json',
